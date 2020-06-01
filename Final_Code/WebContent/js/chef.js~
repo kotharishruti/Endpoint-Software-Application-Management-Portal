@@ -1,0 +1,520 @@
+
+
+function otherSelect() {
+                var path = document.getElementById("path");
+                var url =document.getElementById("url");
+                var com =document.getElementById("com");
+                var ip1 =document.getElementById("ip1");
+                var pass1 =document.getElementById("pass1");
+                
+                if (document.forms[0].theItems.options[document.forms[0].theItems.selectedIndex].value == "item1") {
+                    path.style.visibility = "visible";
+                    url.style.visibility= "hidden";
+                    com.style.visibility="hidden";
+                    ip1.style.visibility="hidden";
+                    pass1.style.visibility="hidden";
+                }
+                else if (document.forms[0].theItems.options[document.forms[0].theItems.selectedIndex].value == "item2") {
+                	 path.style.visibility = "hidden";
+                     url.style.visibility= "visible";
+                     com.style.visibility="hidden";
+                     ip1.style.visibility="hidden";
+                     pass1.style.visibility="hidden";
+                } 
+                else if (document.forms[0].theItems.options[document.forms[0].theItems.selectedIndex].value == "item3") {
+                	 path.style.visibility = "hidden";
+                     url.style.visibility= "hidden";
+                     com.style.visibility="visible";
+                     ip1.style.visibility="visible";
+                     pass1.style.visibility="visible";
+                } 
+                else
+                	{
+                	 path.style.visibility = "hidden";
+                     url.style.visibility= "hidden";
+                     com.style.visibility="hidden";
+                     ip1.style.visibility="hidden";
+                     pass1.style.visibility="hidden";
+                	}
+            }
+
+
+function proceed (curObj) {
+	if(curObj) {
+		var act = $(curObj).attr('act');
+		var mode   = $(curObj).attr('mode');
+		var osid   = $(curObj).attr('osid');
+		var softwarid = $(curObj).attr('softwarid');
+		var softwarname = $(curObj).attr('softwarname');
+		var osname   = $(curObj).attr('osname');
+		var ip = $("#ip").val();
+		var env = $("#env").val();
+		var ver = $("#ver").val();
+		var fil = $("#fil").val();
+		var user = $("#user").val();
+		var root = $("#rootpassword").val();
+		var rootD = $("#rootpasswordD").val();
+		var ipD = $("#ipD").val();
+		var url = $("#url").val();
+		var path = $("#path").val();
+		var soname = $("#soname").val();
+		var dep = $("#dep").val();
+		var com = $("#com").val();
+		var ip1 = $("#ip1").val();
+		var pass1 = $("#pass1").val();
+		
+		
+		
+		$.ajax({
+			method: "POST",
+			url: "servlet4",
+			dataType: 'json',
+			data: { "act": act, "mode": mode , "osid":osid , "softwarid":softwarid , "softwarname":softwarname,"osname":osname,"ip":ip,"root":root,"env":env,"fil":fil,"ver":ver,"ipD":ipD,"rootpasswordD":rootD,"user":user,"soname":soname,"url":url,"path":path,"dep":dep,"com":com,"ip1":ip1,"pass1":pass1}
+		})
+		.done(function( data ) {
+			
+			if(mode=="software")
+			{
+				
+				switch (act) {
+
+
+				case 'oslist':
+					
+				
+					
+					if (data && data.length > 0) {
+						var html = '<button type="back" class="btn btn-default">'+'<a href="p2.html">Back</a></button><br/><br/>';
+						
+						for (var i=0; i< data.length; i++) {
+							
+							html += '<div class="col-lg-4">' +
+								'<div class="panel panel-yellow">' +
+									'<div class="panel-heading">' +
+										'<h3 class="panel-title">' + (data[i]).os_name + ' <span class="pull-right glyphicon glyphicon-play" onclick="proceed(this)" act="softwarelist" mode="' + mode + '" osid="'+data[i].os_id+'" osname="'+data[i].os_name+'"></span></h3>' +
+									'</div>' +
+									'<div class="panel-body">' +
+										'<div class="pull-left"><img src="'+data[i].os_name+'.jpg" alt="" height="250" width="250" /></div>' +
+					
+									'</div>' +
+								'</div>' +
+							'</div>';
+						}
+						$('#page-content').html(html);
+						$('.page-header').html($('.page-header').html() +  ' > ' + act);
+						$('#modeaccordion').hide();
+			
+						}
+						
+
+					
+				break;
+
+
+
+				case 'softwarelist':
+
+					if (data && data.length > 0) {
+						var html = '<button type="back" class="btn btn-default">'+'<a href="#" onclick="proceed(this)" mode="software" act="oslist">Back</a></button><br/><br/>';
+						var html1 = '';
+						html +='<div class="abc" >'+ '<a href="javascript:void(0);" style="margin-left:820px;color:black;font-size:25px;  font-family: sans-serif;" onclick="proceed(this)" act="addnew" mode="' + mode + '" osid="' + osid + '" osname="'+osname+'">Click here to add new software</a>'+
+						'</div>'+'<br>';
+						
+						for (var i=0; i< data.length; i++) {
+							html += '<div class="col-lg-4">' +
+									'<div class="panel panel-yellow">' +
+									'<div class="panel-heading">' +
+										'<h3 class="panel-title">' + (data[i]).soft_name+ '  ' +(data[i].ver)+ ' <span class="pull-right glyphicon glyphicon-play" onclick="proceed(this)" act="submitsoftware" mode="' + mode + '" osid="' + osid + '" osname="'+osname+'" softwarid="' + (data[i]).soft_id + '"softwarname="'+(data[i]).soft_name+'"></span></h3>' +
+									'</div>' +
+									'<div class="panel-body">' +
+										'<div class="pull-left"><img src="'+data[i].soft_name+'.jpg" alt="" height="150" width="150" /></div>' +
+										
+									'</div>' +
+								'</div>' +
+							'</div>';
+						}
+
+						$('#search').attr('act', 'search');
+						$('#search').attr('mode', mode);
+						$('#search').attr('osid', osid);
+						$('#search').attr('osname', osname);
+						
+						$('.page-header').html($('.page-header').html() +  ' > ' + act);
+
+						$('#page-content').html(html);
+						$('#search').show();
+						$('#search').keypress(function(e){
+					        if(e.which == 13){//Enter key pressed
+					        	var Value = document.getElementById('search').value;
+					        	$('#search').attr('softwarname',Value);
+					        	proceed(this);
+					           // alert('Enter pressed: Submitting the form....');
+					        }
+					    });
+						
+						$('#modeaccordion').hide();
+						$('#lnkAddNewSoft').attr('display', 'block');
+						$('#lnkAddNewSoft').show();
+						$('.abc').show();
+										
+					}					
+				break;
+				
+				case 'search':
+
+					if (data && data.length > 0) {
+						var html = '';
+						var html1 = '';
+						if(data[0].sname != "null")
+						{
+						
+
+						
+						for (var i=0; i< data.length; i++) {
+							html += '<div class="col-lg-4">' +
+									'<div class="panel panel-yellow">' +
+									'<div class="panel-heading">' +
+										'<h3 class="panel-title">' + (data[i]).soft_name +' krishhh '+ ' <span class="pull-right glyphicon glyphicon-play" onclick="proceed(this)" act="submitsofware" mode="' + mode + '" osid="' + osid + '" osname="'+osname+'" softwarid="' + (data[i]).soft_id + '"softwarname="'+(data[i]).soft_name+'"></span></h3>' +
+									'</div>' +
+									'<div class="panel-body">' +
+										'<div class="pull-left"><img src="'+data[i].soft_name+'.jpg" alt="" height="150" width="150" /></div>' +
+										
+									'</div>' +
+								'</div>' +
+							'</div>';
+						}
+						}
+						else
+							{
+
+
+							html +='<div class="abc" >'+ '<h3 onclick="proceed(this)" act="addnew" mode="' + mode + '" osid="' + osid + '" osname="'+osname+'">Add new software</h3>'+
+							'</div>'+'<br>';
+
+							html += '<div class="col-lg-4">' +
+							'<p class="heading">No Results Found</p>'+
+					'</div>';
+							}
+
+					
+						$('#page-content').html(html);
+						
+						$('#search').show();
+						$('#search').keypress(function(e){
+					        if(e.which == 13){//Enter key pressed
+					        	$('#search').attr('act', 'search');
+								$('#search').attr('mode', mode);
+								$('#search').attr('osid', osid);
+								
+								
+					        	var Value = document.getElementById('search').value;
+					        	$('#search').attr('softwarname',Value);
+					        	proceed(this);
+					           // alert('Enter pressed: Submitting the form....');
+					        }
+					    });
+						
+						$('#modeaccordion').hide();
+						$('#lnkAddNewSoft').attr('display', 'block');
+						$('#lnkAddNewSoft').show();
+						$('#abc').show();
+					
+					}
+					
+
+				
+					
+				break;
+				
+				
+
+
+				case 'submitsoftware':
+					$('#search').hide();
+					var html = '';
+					html += 
+						'<div class="form-group">' +
+					    	'<label>OS Name : ' + data[0].oname + '</label>' +
+						'</div>' +
+						'<div class="form-group">' +
+					    	'<label>software Name : ' + data[0].sname + '</label>' +
+						'</div>' +
+						'<div class="form-group">' +
+					    	'<label for="ip" >IP</label>' +
+					    	'<input type="ip" class="form-control" id="ip" placeholder="IP">' +
+						'</div>' +
+					  	'<div class="form-group">' +
+					    	'<label for="rootpassword">Root Password</label>' +
+					    	'<input type="password" class="form-control" id="rootpassword" placeholder="Root Password">' +
+					  	'</div>' +
+					  	'<button type="submit" class="btn btn-default" onclick=" proceed(this)" act="submit" mode="' + mode + '" osid="' + osid + '" osname="'+osname+'" softwarid="' + softwarid + '"softwarname="'+softwarname+'"  >Submit</button>' ;
+
+					$('#page-content').html(html);
+					$('.page-header').html($('.page-header').html() +  ' > ' + act);
+					$('#modeaccordion').hide();
+					$('#abc').hide();
+				break;
+						
+
+
+				case 'submit':
+					$('#search').hide();
+					if(data[0].error == 1)
+						{
+						var html = '';
+						 alert('Enter pressed: Submitting the form....');
+						html +='<div class="final" >'+ '<h3>Thankyou for downloading</h3>'+
+						'</div>'+'<br>';
+						}
+					else
+						{
+						var html = '';
+						 window.alert('no errorrrrrrrrrrr....');
+						html +='<div class="final" >'+ '<h3>Thankyou for downloading</h3>'+
+						'</div>'+'<br>';
+						}
+						$('#page-content').html(html);
+						$('#modeaccordion').hide();
+						$('#abc').hide();
+						
+			
+				break;
+
+				case 'addnew':
+					$('#search').hide();
+					var html = '';
+					html +=
+						'<div class="form-group">' +
+				    	'<label>OS Name : ' + data[0].oname + '</label>' +
+					'</div>' +
+					'<div class="form-group">' +
+				    	'<label>software Name : ' + data[0].sname + '</label>' +
+					'</div>' +
+					'<div class="form-group">' +
+				    	'<label for="ip" >IP</label>' +
+				    	'<input type="ip" class="form-control" id="ip" placeholder="IP">' +
+					'</div>' +
+				  	'<div class="form-group">' +
+				    	'<label for="rootpassword">Root Password</label>' +
+				    	'<input type="password" class="form-control" id="rootpassword" placeholder="Root Password">' +
+				  	'</div>' +
+				  	'<button type="submit" class="btn btn-default" onclick=" proceed(this)" act="submit" mode="' + mode + '" osid="' + osid + '" osname="'+osname+'" softwarid="' + softwarid + '"softwarname="'+softwarname+'"  >Submit</button>' ;
+
+					$('#page-content').html(html);
+					$('.page-header').html($('.page-header').html() +  ' > ' + action);
+					$('#modeaccordion').hide();
+
+				break;
+				
+				
+
+
+				case 'submitnew':
+					$('#search').hide();
+					if(data[0].error == 1)
+						{
+						var html = '';
+						 alert('Enter pressed: Submitting the form....');
+						html +='<div class="final" >'+ '<h3>Thankyou for downloading</h3>'+
+						'</div>'+'<br>';
+						}
+					else
+						{
+						var html = '';
+						 window.alert('no error....');
+						html +='<div class="final" >'+ '<h3>Thankyou for downloading</h3>'+
+						'</div>'+'<br>';
+						}
+						$('#page-content').html(html);
+						$('#modeaccordion').hide();
+						$('#abc').hide();
+						
+			
+				break;$('#search').hide();
+				if(data[0].error == 1)
+				{
+				var html = '';
+				 alert('Enter pressed: Submitting the form....');
+				html +='<div class="final" >'+ '<h3>Thankyou for downloading</h3>'+
+				'</div>'+'<br>';
+				}
+			else
+				{
+				var html = '';
+				 window.alert('no error....');
+				html +='<div class="final" >'+ '<h3>Thankyou for downloading</h3>'+
+				'</div>'+'<br>';
+				}
+				$('#page-content').html(html);
+				$('#modeaccordion').hide();
+				$('#abc').hide();
+				
+	
+		break;$('#search').hide();
+		if(data[0].error == 1)
+		{
+		var html = '';
+		 alert('Enter pressed: Submitting the form....');
+		html +='<div class="final" >'+ '<h3>Thankyou for downloading</h3>'+
+		'</div>'+'<br>';
+		}
+	else
+		{
+		var html = '';
+		 window.alert('no error....');
+		html +='<div class="final" >'+ '<h3>Thankyou for downloading</h3>'+
+		'</div>'+'<br>';
+		}
+		$('#page-content').html(html);
+		$('#modeaccordion').hide();
+		$('#abc').hide();
+		
+
+break;
+						
+			
+				break;
+
+
+				}
+			
+			
+			
+			
+		}	
+			else if(mode=="application")
+				{
+				switch (act) {
+
+				case 'oslist':
+					if (data && data.length > 0) {
+						var html = '';
+						
+						for (var i=0; i< data.length; i++) {
+							
+							html += '<div class="col-lg-4">' +
+								'<div class="panel panel-yellow">' +
+									'<div class="panel-heading">' +
+										'<h3 class="panel-title">' + (data[i]).os_name + ' <span class="pull-right glyphicon glyphicon-play" onclick="proceed(this)" act="submitapp" mode="' + mode + '" osid="'+data[i].os_id+'" osname="'+data[i].os_name+'"></span></h3>' +
+									'</div>' +
+									'<div class="panel-body">' +
+										'<div class="pull-left"><img src="'+data[i].os_name+'.jpg" alt="" height="250" width="250" /></div>' +
+					
+									'</div>' +
+								'</div>' +
+							'</div>';
+						}
+
+						$('#page-content').html(html);
+						$('.page-header').html($('.page-header').html() +  ' > ' + act);
+						$('#modeaccordion').hide();
+					}
+				break;
+
+				case "submitapp":
+					var html = '';
+					html += 
+						'<div class="form-group">' +
+					    	'<label>OS Name : ' + data[0].oname + '</label>' +
+						'</div>' +
+						'<div class="form-group">' +
+						'</div>' +
+						'<div class="form-group">' +
+				    	'<label for="env">ENVIRONMENT</label>' +
+				    	'<input type="environment" class="form-control" id="env" placeholder="Environment">' +
+					'</div>' +
+					'<div class="form-group">' +
+			    	'<label for="ver">VERSION</label>' +
+			    	'<input type="version" class="form-control" id="ver" placeholder="Version">' +
+				'</div>' +
+				'<div class="form-group">' +
+		    	'<label for="fil">FILE</label>' +
+		    	'<input type="fil" class="form-control" id="fil" placeholder="File">' +
+			'</div>' +
+
+			'<div class="form-group">' +
+		    	'<label for="ip">IP</label>' +
+		    	'<input type="ip" class="form-control" id="ipD" placeholder="IP">' +
+			'</div>' +
+		
+			'<div class="form-group">' +
+	    	'<label for="user">USERNAME</label>' +
+	    	'<input type="user" class="form-control" id="user" placeholder="Username">' +
+		'</div>' +  	'<div class="form-group">' +
+					    	'<label for="rootpassword">Root Password</label>' +
+					    	'<input type="password" class="form-control" id="rootpasswordD" placeholder="Root Password">' +
+					  	'</div>' +
+					  	'<button type="submit" class="btn btn-default" onclick="proceed(this)" act="deploy" mode="' + mode + '" osid="' + osid + '" osname="'+osname+'" >Deploy</button>' ;
+
+					$('#page-content').html(html);
+					$('.page-header').html($('.page-header').html() +  ' > ' + act);
+					$('#modeaccordion').hide();
+
+				break;
+				
+				
+
+
+				case 'deploy':
+				
+						var html = '';
+					if(data[0].error == 200)
+						{
+						 alert('Success....');
+						html +='<div class="final" >'+ '<h3>Thankyou for downloading</h3>'+
+						'</div>'+'<br>';
+						}
+					
+					else{
+						 alert('Failure....');
+							html +='<div class="final" >'+ '<h3>Thankyou for downloading</h3>'+
+							'</div>'+'<br>';
+							
+					}
+						$('#page-content').html(html);
+						$('#modeaccordion').hide();
+					
+			
+				break;
+					
+				}
+				
+			
+					
+				}
+			else if(mode=="info")
+			{
+			
+			switch(act)
+			{
+			case 'help':
+				{
+				
+				var html = '';
+				html +='<div class="help" >'+ '<h3>help data here</h3>'+
+				'</div>'+'<br>';
+				$('#page-content').html(html);
+				$('#modeaccordion').hide();
+				$('.page-header').html(" ");
+				break;
+				}
+				
+			case 'about':
+			{
+				var html = '';
+			html +='<div class="help" >'+ '<h3>about us here</h3>'+
+			'</div>'+'<br>';
+			$('#page-content').html(html);
+			$('#modeaccordion').hide();
+			$('.page-header').html(" ");
+		
+		
+			break;
+			}
+		
+			}
+			}
+			
+		});
+	}
+}

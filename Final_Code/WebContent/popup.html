@@ -1,0 +1,87 @@
+<html>
+<head>
+<script type="text/javascript">
+	 function otherSelect() {
+                var path = document.getElementById("pathBox");
+                var url =document.getElementById("urlBox");
+                if (document.forms[0].theItems.options[document.forms[0].theItems.selectedIndex].value == "item1") {
+                    path.style.visibility = "visible";
+                    url.style.visibility= "hidden";
+                }
+                else if (document.forms[0].theItems.options[document.forms[0].theItems.selectedIndex].value == "item2") {
+                    url.style.visibility = "visible";
+                    path.style.visibility= "hidden";
+                } 
+                else{
+                url.style.visibility = "hidden";
+                    path.style.visibility= "hidden";
+                }
+            }
+            </script>
+<style>
+body
+{
+	background-color:#e1e1e1;
+}
+#section {
+    padding:5px;	
+	font-family:Segoe UI light;
+	font-size:27px;
+	 padding-bottom:60px;
+}
+
+#drop{
+margin-top:-20;
+margin-left:105;
+}
+</style>
+</head>
+<body>
+
+<div id="section">
+
+
+ 
+	
+  <p style="font-family: sans-serif;font-weight:bold;color:maroon;font-size:20;position:relative;">Enter Software Name: </p>
+	<input type="text" name="name" style="font-size:20px;width:300px;position:relative;margin-top:-50;margin-left:230"/></br>
+      
+   
+   <form action="" method=""> 
+<a style="font-family: sans-serif;font-weight:bold;color:maroon;font-size:20;position:relative;">Url OR Path: </a>
+     <select id = "drop" name="theItems"  onchange="otherSelect()" >
+       <option value="" selected disabled>-----------SELECT-------------</option>
+       <option value="item1">Path To The Installer</option>
+        <option value="item2">Url Of The Installer</option>
+           
+    </select>
+    
+	<div id="pathBox" style="visibility:hidden;">	
+	<p style="font-family:sans-serif;font-weight:bold;color:maroon;font-size:20;position:relative;">Path to the Installer:</p>
+    <input type="file" name="Path" style="font-size:20px;width:300px;margin-top:-50;margin-left:230"/>
+  
+    </div>
+    
+	
+	<div id="urlBox" style="visibility: hidden;">
+	  
+	<p style="font-family:sans-serif;font-weight:bold;color:maroon;font-size:20;position:relative;margin-top:-43;">URL of the Installer:</p>
+    <input type="text" name="Url" style="font-size:20px;width:300px;margin-top:-50;margin-left:230"/>
+	
+    
+	</div>
+   
+	  <center>
+	  <br>
+	  <input type="submit" value="Submit" name="mybutton"  style="height: 30px; width: 90px;font-family:Times New Roman;font-size:15px;font-weight:bold;margin-top:-30;" onclick="window.close();">
+	  </center>
+</form>
+
+
+
+
+</div>
+	
+</body>
+
+</html>

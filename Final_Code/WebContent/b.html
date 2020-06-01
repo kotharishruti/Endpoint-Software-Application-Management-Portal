@@ -1,0 +1,65 @@
+<html>
+<head>
+
+	<link rel="stylesheet" type="text/css" href="b.css" />
+	<script type="text/javascript" src="jquery-1.4.2.min.js"></script>
+	<script src="jquery.autocomplete.js"></script>	
+	
+	<script>
+	jQuery(function(){
+		$("#serch").autocomplete("list.jsp");
+		$("#search").submit();
+		
+	});
+	
+	function showDiv() {
+	
+   $("#panel").slideDown("slow");
+}
+
+   </script>
+   <script language="javascript" type="text/javascript">
+	<!--
+	function popitup(url) {
+	newwindow=window.open(url,'name','height=280,width=600,toolbar=no,directories=no,status=no,menubar=no,scrollbars=no,resizable=no,top=200,left=400');
+	
+	if (window.focus) {newwindow.focus()}
+	return false;
+	}
+
+// -->
+</script>
+
+
+
+   
+</head>
+<body>
+	<h2>ESAMP</h2>
+	<h3 class="sup">SUPPORT</h3>	
+	<h3 class="fed">FEEDBACK</h3>
+    <div class="container">
+    <div class="tag"><p>SEARCH</p></div>	
+    <form method="get" id="search">
+    <input class="box" type="text" name="serch" id="serch" placeholder="Enter Your Software Name" onEnter="showDiv()" required/>
+   
+    <img class="search" src="search.jpg" alt="" onclick="showDiv()" />
+   
+
+
+   <img class =resize src="texture_graphite_blue.jpg" alt=""  />
+   <div id="panel"  style="display:none;" class="panel" > 
+
+<p class="pqr"]>ROOT PASSWORD:</a> <input id="passname" type="password" name="pass" required><br>
+<input id="submitbutton" type = "submit" value="INSTALL!" onclick="form.action='servlet1';">
+</form>
+</div>
+</div> 
+<div class="new" >
+<p class="xyz">DIDN'T FIND YOUR SOFTWARE?<br>
+YOU CAN ADD ONE..</p>
+</div>
+<a href="b.html" onclick="return popitup('popup.html')" style="text-decoration:none;">CLICK HERE TO ADD NEW</a>
+
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>SB Admin - Bootstrap Admin Template</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/sb-admin.css" rel="stylesheet">
+
+    <!-- Morris Charts CSS -->
+    <link href="css/plugins/morris.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+
+    <div id="wrapper" style="padding-left:0px;">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" style="margin-right:0px; margin-top:-10px; color:white; "href="p2.html"><img src = "LOGO.png" height="45" width = "100" alt = " "align="top" align="left"/></a>
+                <a class="navbar-brand" style=" color:white; "href="p2.html"><i> ~~Automation is the Key....</i></a>
+ 		<a class="navbar-brand" style="margin-left:750px; color:white;" href="javascript:void(0);" onclick="proceed(this)" mode="info" act="help">Help</a>
+ 		<a class="navbar-brand" style=" color:white;" href="javascript:void(0);" onclick="proceed(this)" mode="info" act="about" align="right">About      <br></a>
+            </div>
+        </nav>
+        <div id="page-wrapper">
+
+            <div class="container-fluid">
+
+
+
+                <!-- Page Heading -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h1 class="pull-left page-header" style="width:100%">
+                            <span id="breadcrumbs" class="pull-left"><a href="p2.html" style = "color:black;" >Home</a></span>
+                
+                            <input class="search pull-right" name="search" id="search" placeholder="Search" mode="software" action="list" style="display:none;" />
+                        
+					 </h1>
+                    </div>                    
+                </div>
+                      
+                <!-- /.row -->
+
+
+                <div class="row" id="page-content"> 
+                    <div class="panel-group" id="modeaccordion" role="tablist" aria-multiselectable="true">
+                      <div class="panel panel-default panel-yellow">
+                        <div class="panel-heading" role="tab" id="headingOne">
+                          <h4 class="panel-title">
+                            <a role="button" data-toggle="collapse" data-parent="#modeaccordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                              Software Installation
+                            </a>
+                            <a href="javascript:void(0);" onclick="proceed(this)" mode="software" act="oslist"><span class="pull-right glyphicon glyphicon-play"></span></a>
+                          </h4>
+                        </div>
+                        <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                          <div class="panel-body">
+                           Automates the process of software installation.To use this tool you will have to select the Operating System of your endpoint and search the software to be installed. If the search result displays the software you have entered then you can directly proceed by entering the endpoint's IP address and root password.You can also add a new software to our database if the software you are searching for is not currently present with us. The URl or path to the installer is optional.
+                           
+                            </div>
+                        </div>
+                      </div>
+                      <div class="panel panel-default panel-yellow">
+                        <div class="panel-heading" role="tab" id="headingTwo">
+                          <h4 class="panel-title">
+                            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#modeaccordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                              Application Deployment
+                            </a>
+                            <a href="javascript:void(0);" onclick="proceed(this)" mode="application" act="oslist"><span class="pull-right glyphicon glyphicon-play"></span></a>
+                          </h4>
+                        </div>
+                        <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                          <div class="panel-body">
+                         Provides a development environment to deploy your applications. To use this tool you need to select the Operating System of your endpoint. Then select the environment type and enter its version. Enter the path to your file which you want to run.You will also have to provide the IP address of the endpoint and its root password.                               </div>
+                        </div>
+                      </div>  
+                    </div>
+                </div>
+
+                
+            </div>
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Morris Charts JavaScript -->
+    <script src="js/plugins/morris/raphael.min.js"></script>
+    <script src="js/plugins/morris/morris.min.js"></script>
+    <script src="js/plugins/morris/morris-data.js"></script>
+    <script src="js/chef.js"></script>
+    <script src="js/lists.js"></script>
+
+</body>
+
+</html>

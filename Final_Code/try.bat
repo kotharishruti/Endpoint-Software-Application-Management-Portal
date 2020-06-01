@@ -1,0 +1,1 @@
+knife bootstrap $1 -x root -P $2 -N $3

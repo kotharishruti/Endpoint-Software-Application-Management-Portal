@@ -1,0 +1,213 @@
+
+h2{
+	background-color:#e1e1e1;
+	font-family:"Courier New", Courier, monospace;
+	font-size:40px;
+	margin-top:20;
+	color:maroon;
+}
+
+.sup {
+	color:maroon;
+	font-family:"Courier New", Courier, monospace;
+	margin-left:1070;
+	margin-top:-65;
+}
+
+.fed{
+	color:maroon;
+	font-family:"Courier New", Courier, monospace;
+	margin-left:1190;
+	margin-top:-41;
+}
+
+.container {
+	width: 200px;
+    height: 200px;
+}
+
+.tag {
+    float: left;
+    position: relative;
+	width: 100px;
+    height: 40px;	
+    left: 400px;
+    top: 210px;
+    background-color: maroon;
+    margin-bottom: -20px;
+}
+	
+.box{
+	height:40;
+	width:400;
+	left: 500px;
+	top: 190px;
+    position: relative;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:12px;
+	border:1px solid #000000;
+	padding:2px;
+	color:#000;
+	background:white url(../images/search.png) no-repeat 3px 2px;
+	padding-left:17px;
+}
+
+img.search{
+	height:38;
+	width:36;
+	left: 898px;
+	top: 149px;
+    position: relative;
+	font-size:12px;
+	background-image:'search.jpg';
+	padding:2px;
+	color:#000;
+
+	
+}
+img.resize
+{
+	margin-top:-40;
+	margin-bottom:-150;
+	width:1350;
+	height:350;
+}
+
+
+#panel{	
+	position:relative;
+	height:100;
+	width:400;
+	margin-left:500;
+}
+
+.pqr{
+	position:relative;
+	top:10;
+	margin-left:50;
+	color:white;
+	font-weight:bold;
+}
+
+#passname{
+	
+	position:relative;
+}	
+
+#submitbutton{
+		font-size:15px;
+	font-weight:bold;
+	height:30;
+	width:90;
+	position:relative;
+	left:110;
+	top:15;
+	background-color:maroon;
+	color:white;
+	font-family:Times New Roman;
+	border: 1px solid maroon;
+		
+	}
+
+::-webkit-input-placeholder { 
+	color:black;
+	font-size:11.5;
+	font-weight:900;
+ 	display: block;
+  	margin: 0;
+  	width: 100%;
+  	font-family: sans-serif;
+ }
+
+.new
+{
+	background-color:#e1e1e1;
+	margin-top:270;
+	height:80;
+	 line-height: 100px;
+}
+
+.xyz{
+	font-weight:700;
+	font-size:15;
+	font-family:"Comic Sans MS", cursive, sans-serif;
+	
+	color:maroon;
+	display: inline-block;
+  	vertical-align: middle;
+  	line-height: 25px;  
+	}
+	
+p{
+	color:white;
+	font-weight:bold;
+	margin-left:17;
+	margin-top:12;
+}
+
+
+.ac_results {
+	padding: 0px;
+	border: 1px solid #808080;
+	background-color: #808080;
+	overflow: hidden;
+}
+
+.ac_results ul {
+	width: 100%;
+	list-style-position: outside;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+a{
+	position:relative;
+	top:-55;
+	margin-left:550;
+	color:black;
+	font-weight:700;
+	font-size:20;
+	font-family:"Comic Sans MS", cursive, sans-serif;
+	
+	color:maroon;
+}
+.ac_results li {
+	margin: 0px;
+	padding: 2px 5px;
+	cursor: default;
+	display: block;
+	color: #ffffff;
+	font-family:verdana;
+	/* 
+	if width will be 100% horizontal scrollbar will apear 
+	when scroll mode will be used
+	*/
+	/*width: 100%;*/
+	font-size: 12px;
+	/* 
+	it is very important, if line-height not setted or setted 
+	in relative units scroll will be broken in firefox
+	*/
+	line-height: 16px;
+	overflow: hidden;
+
+}
+
+.ac_loading {
+	background: white url('../images/indicator.gif') right center no-repeat;
+}
+
+.ac_odd {
+	background-color: #808080;
+	color: #ffffff;
+}
+
+.ac_over {
+	background-color: #808080;
+	color: #ffffff;
+}
+
+
+.input_text{
+	
+}

@@ -1,0 +1,38 @@
+
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="docker.css" />
+
+</head>
+<body>
+	<h2>ESAMP</h2>
+	<h3 class="sup">SUPPORT</h3>	
+	<h3 class="fed">FEEDBACK</h3>
+	<div class="container">
+      	<form action= "servlet2" method= "get">
+      	<p class = "envname">ENVIRONMENT:</p><select id = "env" name="theItems" required >
+      	<option value="" selected disabled>-----------SELECT-------------</option>
+       <option value="java">JAVA</option>
+        <option value="apache tomcat">APACHE TOMCAT</option>
+        
+           
+    </select>
+    <p class = "ver" >VERSION:</p><input type="text" name="ver" id="vers" required/>
+   		<p class = "fname" >FILE:</p><input type="text" name="fil" id="fil" required/>
+   		<p class = "user">USERNAME:</p><input type="text" name="usr" id="usr" required/>
+   		<p class = "passwrd">ROOT PASSWORD:</p><input type="password" name="pass" id="pass" required/>
+   		
+   		<input type="submit" id="mybutton" value="Submit" name="submitbutton"/>
+   		 <img class =resize src="texture_graphite_blue.jpg" alt=""  />
+   	</form>
+   	
+  
+   	
+   </div>
+   
+   <div class="new">
+   
+   </div>
+   
+</body>
+</html>

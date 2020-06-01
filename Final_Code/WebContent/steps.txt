@@ -1,0 +1,22 @@
+g-new web application
+
+project name package
+
+deselect google web toolkit
+
+select us google app engine and use default sdk
+
+right click on project-google-google app settings-run configurations-project-server
+
+go to appengine.google.com
+
+sign in
+
+create new project
+
+get application id from settings
+
+paste it in application id in eclipse
+
+g-deploy to app engine
+

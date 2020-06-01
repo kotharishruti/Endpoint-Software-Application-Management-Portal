@@ -1,0 +1,142 @@
+h2{
+	background-color:#e1e1e1;
+	font-family:"Courier New", Courier, monospace;
+	font-size:40px;
+	margin-top:20;
+	color:maroon;
+}
+
+.sup {
+	color:maroon;
+	font-family:"Courier New", Courier, monospace;
+	margin-left:1070;
+	margin-top:-65;
+}
+
+.fed{
+	color:maroon;
+	font-family:"Courier New", Courier, monospace;
+	margin-left:1190;
+	margin-top:-41;
+}
+
+.container{
+	margin-top:100;
+	background-color:#e1e1e1;
+	height:240px;
+
+}
+
+.envname{
+	font-weight:bold;
+	position:relative;
+	color:white;
+	top:40;
+	left:405;
+}
+
+#env{
+	position:relative;
+	top:4;
+	left:575;
+	width:300;
+}
+
+.ver{
+	font-weight:bold;
+
+	position:relative;
+	color:white;
+	top:11;
+	left:405;
+}
+
+#vers{	position:relative;
+	top:-23;
+	left:575;
+
+}
+
+.fname{
+	font-weight:bold;
+
+	position:relative;
+	color:white;
+	top:-20;
+	left:405;
+}
+
+#fil{	position:relative;
+	top:-52;
+	left:575;
+}
+
+
+
+.user{
+	font-weight:bold;
+	position:relative;
+	color:white;
+	top:-48;
+	left:405;
+}
+
+
+#usr{
+	position:relative;
+	top:-84;
+	left:575;
+	width:300;
+}
+
+.passwrd{
+	font-weight:bold;
+	position:relative;
+	color:white;
+	top:-75;
+	
+	left:405;
+}
+
+
+
+
+
+#pass{
+	position:relative;
+	top:-116;
+	left:575;
+	width:300;
+}
+
+#mybutton{
+	font-size:15px;
+	font-weight:bold;
+	height:30;
+	width:70;
+	position:relative;
+	left:335;
+	top:-50;
+	background-color:maroon;
+	color:white;
+	font-family:Times New Roman;
+	border: 1px solid maroon;
+	
+}
+
+
+img.resize
+{
+	margin-top:-346;
+	margin-bottom:-150;
+	width:1350;
+	height:350;
+}
+
+.new
+{
+	background-color:#e1e1e1;
+	margin-top:150;
+	height:80;
+	 
+}
